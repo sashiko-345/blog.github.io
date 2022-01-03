@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    
+    <title>fun | Hexo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+<link rel="stylesheet" href="/blog.github.io/dist/build.css?v=1637200696663.css">
+
+
+    
+<link rel="stylesheet" href="/blog.github.io/dist/custom.css?v=1637200696663.css">
+
+
+    <script>
+        window.isPost = false
+        window.aomori = {
+            
+            
+            
+        }
+        window.aomori_logo_typed_animated = false
+        window.aomori_search_algolia = false
+
+    </script>
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+
+    <div class="container">
+    <header class="header">
+        <div class="header-type">
+            
+            <div class="header-type-inner">
+                
+                    <a class="header-type-title" href="/">Hexo</a>
+                
+    
+                
+                    <span class="header-type-page-title">| fun</span>
+                
+            </div>
+        </div>
+        <div class="header-menu">
+            <div class="header-menu-inner">
+                
+                <a href="/blog.github.io/">Home</a>
+                
+                <a href="/blog.github.io/archives">Archives</a>
+                
+                <a href="/blog.github.io/fun">Fun</a>
+                
+            </div>
+            <div class="header-menu-social">
+                
+    <a class="social" target="_blank" href="baidu.com">
+        <box-icon type='logo' name='meta'></box-icon>
+    </a>
+
+    <a class="social" target="_blank" href="">
+        <box-icon type='' name=''></box-icon>
+    </a>
+
+            </div>
+        </div>
+
+        <div class="header-menu-mobile">
+            <div class="header-menu-mobile-inner" id="mobile-menu-open">
+                <i class="icon icon-menu"></i>
+            </div>
+        </div>
+    </header>
+
+    <div class="header-menu-mobile-menu">
+        <div class="header-menu-mobile-menu-bg"></div>
+        <div class="header-menu-mobile-menu-wrap">
+            <div class="header-menu-mobile-menu-inner">
+                <div class="header-menu-mobile-menu-close" id="mobile-menu-close">
+                    <i class="icon icon-cross"></i>
+                </div>
+                <div class="header-menu-mobile-menu-list">
+                    
+                    <a href="/blog.github.io/">Home</a>
+                    
+                    <a href="/blog.github.io/archives">Archives</a>
+                    
+                    <a href="/blog.github.io/fun">Fun</a>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+    <div class="container">
+        <div class="main">
+            <section class="inner">
+                <section class="inner-main">
+                    
+
+
+<div class="fun">
+  <!--
+ * @Author: CSU_XZY
+ * @Date: 2020-10-17 12:38:20
+ * @LastEditors: CSU_XZY
+ * @LastEditTime: 2020-10-26 15:37:56
+ * @FilePath: \第二天\snake\snake.html
+ * @Description: just to play
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>贪吃蛇</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+/*     body{ */
+/*         background-color: #483923; */
+/*     } */
+/*     table{ */
+/*         position:relative; */
+/*         width:100% */
+/*         padding-right: 300px; */
+/*         padding-bottom:150px */
+/*     } */
+     table{
+            margin: 0px auto;
+            overflow: hidden;
+            border-collapse: collapse;
+            border: solid 1px #ddd;
+        }
+    td{
+        border: solid 1px #444;
+        //display: table-cell;
+        width: 20px;
+        height: 20px;
+        background-color: #444;
+    }
+    p{
+        color: #483923;
+        margin: 50px auto;
+        width: 450px;
+        font-size: 14px;
+        text-align: center;
+    }
+    .snake_head{
+        /* background: url("head.png"); */
+        background-color:#dd4444
+    }
+    .snake_tail{
+        /* background: url("tail.png"); */
+        /* border: 1px solid #ededed; */
+        /* width: 20px;
+        height: 20px;
+        color: #fff;
+        border: none;
+        box-shadow: 0 0 0 1px #ededed;
+        border-radius: 50%; */
+        background-color: coral;
+    }
+    .notSnake{
+        background-color: #444;
+    }
+    .snake_body{
+        background-color: #3388ee;
+    }
+    .food{
+        background-color: #33aa33;
+    }
+/*     div{ */
+/*         float: left; */
+/*         width: 100px; */
+/*         height: 100px; */
+/*         border-radius: 50%; */
+/*         background: url("snake.jpg"); */
+/*         background-size: cover; */
+/*          *//* 执行run动画 无限循环 默认暂停*/ */
+/*         animation: run 15s linear infinite paused; */
+/*     } */
+    /* 自定义动画 */
+    @keyframes run{
+        from{
+        /* 旋转效果 */
+        transform: rotateZ(0);
+        }
+        to{
+        transform: rotateZ(720deg);
+        }
+    }
+</style>
+<body>
+    <div id="box"></div>
+    <audio src="music.mp3" autoplay = "autoplay" id = "myAudio"  loop = "true"></audio>
+    <p>Tips: Space bar to start/pause, arrow keys to control the snake, F5 to refresh</p>
+</body>
+    <script type="text/javascript" src="snake.js"></script>
+</html>
+<script>
+   /*
+ * @Author: CSU_XZY
+ * @Date: 2020-10-17 12:38:26
+ * @LastEditors: CSU_XZY
+ * @LastEditTime: 2020-10-18 22:40:24
+ * @FilePath: \第二天\snake\snake.js
+ * @Description: just to play
+ */
+window.onload = function(){
+    var snake = function(width,height,snakeId,speed){
+        this.width = width || 10;
+        this.height = height || 10;
+        this.snakeId = snakeId || "snake";
+        this.goX = 0;
+        this.goY = 0;
+        this.speed = this.oldSpeed = speed || 10;
+        this.Grid = []; //存放td的二维数组
+        this.snakeGrid = []; //存放蛇的数组
+        this.foodGrid = [];
+        this.snakeTimer = null;
+        this.derectkey = 39;
+        this.stop = true;
+        this.init();
+        document.getElementById("myAudio").play();
+        box.style.animationPlayState = 'running'
+    }
+
+    snake.prototype = {
+        //创建二维数组
+        multiArray : function(m , n)
+        {
+            var array = new Array(m);   //长
+            for(let i = 0; i < m; i++)
+            {
+                array[i] = new Array(n);  //宽
+            }
+            return array;
+        },
+        //函数修正this
+        bind : function(fn,context)
+        {
+            return function(){
+				return fn.apply(context,arguments);
+			}
+        },
+        //移动的主函数
+        move:function(){
+			var _this = this;
+			if(_this.snakeTimer){clearInterval(_this.snakeTimer);}
+			_this.snakeTimer = setInterval(_this.bind(_this.main,_this),Math.floor(3000/this.speed));
+        },
+        //重来
+        reset()
+        {
+            this.goX = 0;
+            this.goY = 0;
+            this.speed = this.oldSpeed;
+            this.derectkey = 39;
+            this.stop = true;
+            this.init();
+        },
+        //确定键盘事件
+        keyDown : function(e)
+        {
+            var e = e || window.event;
+            var keycode = e?e.keyCode:0;
+            if(keycode == 116 )
+            window.location.reload();
+            if(keycode == 32)
+            {
+                if(this.stop)
+                {
+                    this.move();
+                    this.stop = false;
+                }
+                else{
+                    if(this.snakeTimer)
+                    clearInterval(this.snakeTimer);
+                    this.stop = true;
+                }
+            }
+            if(keycode>=37 && keycode <= 40)
+                {
+                    if(!this.stop)
+                    this.derectkey = keycode;
+                }
+            return false;
+        },
+        //创建地图
+        creatMap : function()
+        {
+            var table = document.createElement("table");
+            var tbody = document.createElement("tbody");
+            for(let i = 0; i < this.width; i++)
+            {
+                var tr = document.createElement("tr");
+                for(let j = 0; j < this.height; j++)
+                {
+                    var td = document.createElement("td");
+                    this.Grid[i][j] = tr.appendChild(td);
+                }
+                tbody.appendChild(tr);
+            }
+            table.appendChild(tbody);
+            table.id = this.snakeId;
+            document.getElementById("box").appendChild(table);
+            //document.body.appendChild(table);
+        },
+        //产生随机点
+        randomPoint : function(initX,initY,endX,endY)
+        {
+            var p = []; //用来存放产生的随机点的数组
+            var initX = initX || 0;
+            var initY = initY || 0;
+            var endX = endX || this.width;
+            var endY = endY || this.height;
+            p[0] = Math.floor(Math.random()*(endX - initX)) + Math.floor(initX);
+            p[1] = Math.floor(Math.random()*(endY - initY)) + Math.floor(initY)
+            return p;
+        },
+        //初始化食物的位置
+        initFood : function()
+        {
+            this.foodGrid = this.randomPoint();
+
+            if(this.isInSnake(this.foodGrid))
+            {
+                this.initFood();
+                return false;
+            }
+            this.Grid[this.foodGrid[0]][this.foodGrid[1]].className = "food";
+        },
+        //判断点是否在蛇身上
+        isInSnake : function(point,pos)
+        {
+            var snakeGrid = this.snakeGrid;
+            if(point instanceof Array)
+            {
+                let n = snakeGrid.length;
+                for(let i = pos || 0; i < n; i++)
+                {
+                    if(point[0] == snakeGrid[i][0] && point[1] == snakeGrid[i][1])
+                    return true;
+                }
+            }
+            return false;
+        },
+        //给蛇涂颜色
+        paintSnake : function(){
+            var snakeGrid = this.snakeGrid;
+            for(let i = 0; i < snakeGrid.length; i++)
+            {
+                this.Grid[snakeGrid[i][0]][snakeGrid[i][1]].className = "snake_body";
+            }
+        },
+        //初始化蛇的位置
+        initSnake : function()
+        {
+            this.snakeGrid = [];
+
+            this.snakeGrid.push([1,3]);
+            this.snakeGrid.push([1,2]);
+            this.snakeGrid.push([1,1]);
+
+            this.paintSnake();
+
+            this.Grid[this.snakeGrid[0][0]][this.snakeGrid[0][1]].className = "snake_head";
+            this.Grid[this.snakeGrid[this.snakeGrid.length-1][0]][this.snakeGrid[this.snakeGrid.length-1][1]].className = "snake_tail";
+        },
+        //判断蛇是否撞墙
+        isInWall : function(point){
+            if(point instanceof Array){
+                if(point[0] < 0 || point[0] > this.width1 - 1 || point[1] < 0 || point[1] > this.height - 1)
+                return true;
+            }
+            return false;
+        },
+        //初始化条件
+
+        //控制函数运行的主函数
+        main : function(){
+            var snakeGrid = this.snakeGrid;
+            var temp = snakeGrid[snakeGrid.length-1],
+                isEnd = false;
+                headX = snakeGrid[0][0];
+                headY = snakeGrid[0][1];
+                msg = "";
+            switch(this.derectkey)
+            {
+                case 37:
+					if(this.goY!=1){this.goY=-1;this.goX=0} 	//防止控制蛇往相反反方向走
+					break;
+				case 38:
+					if(this.goX!=1){this.goX=-1;this.goY=0}
+					break;
+				case 39:
+					if(this.goY!=-1){this.goY=1;this.goX=0}
+					break;
+				case 40:
+					if(this.goX!=-1){this.goX=1;this.goY=0}
+            }
+            headX += this.goX;
+            headY += this.goY;
+
+            if(headX == this.foodGrid[0] && headY == this.foodGrid[1])
+            {
+                this.snakeGrid.unshift(this.foodGrid);
+                this.initFood();
+                if(this.snakeGrid.length>4){		//控制蛇加速
+					if(this.snakeGrid.length==5){
+						this.speed += 5;
+					}
+					else if(this.snakeGrid.length==10){
+						this.speed += 3;
+					}
+					else if(this.snakeGrid.length==20){
+						this.speed += 3;
+					}
+					else if(this.snakeGrid.length==30){
+						this.speed += 3;
+					}
+					this.move();
+				}
+            }
+            else
+            {
+                for(var i=this.snakeGrid.length-1;i>0;i--){
+					this.snakeGrid[i] = this.snakeGrid[i-1] ;
+				}
+                this.snakeGrid[0] = [headX,headY];
+                if(this.isInSnake(this.snakeGrid[0],1)){
+					isEnd=true;
+					msg = "You eat yourself!";
+				}
+				//判断是否撞墙
+				else if(this.isInWall(this.snakeGrid[0])){
+					isEnd =true;
+					msg = "Wall !";
+                }
+                if(isEnd)
+                {
+                    if(this.snakeTimer)
+                    clearInterval(this.snakeTimer);
+                    var score;
+                    let len = this.snakeGrid.length;
+                    if(len <= 5)
+                    score = len-3;
+                    else if(len>5 && len<=10)
+                    {
+                        score = 2 + 2*(len-5)
+                    }
+                    else if(len>10 && len <= 20)
+                    score = 12 + 3*(len-10);
+                    else
+                    score = 27 + 5*(len - 15);
+                    if(confirm(msg+"Your score is："+score+"！ Start again?")){
+						this.reset();
+					}
+					return false;
+                }
+                this.Grid[temp[0]][temp[1]].className = "notSnake";
+            }
+            this.paintSnake();
+            this.Grid[headX][headY].className = "snake_head";
+            this.Grid[this.snakeGrid[this.snakeGrid.length-1][0]][this.snakeGrid[this.snakeGrid.length-1][1]].className = "snake_tail";
+        },
+        init : function(){
+            var _this = this;
+            snake_id = document.getElementById(_this.snakeId)||0 ;
+            console.log(snake_id);
+			if(snake_id){
+				document.body.removeChild(snake_id);
+			}
+            _this.Grid = _this.multiArray(_this.width,_this.height);
+            _this.creatMap();
+            _this.initSnake();
+            _this.initFood();
+            document.onkeydown = _this.bind(_this.keyDown,_this);
+        }
+    }
+    new snake(20,20,"snake",10);
+}
+</script>
+
+</div>
+
+
+
+                </section>
+            </section>
+
+            <aside class="about">
+                <div class="about" id="about">
+  <div class="about-margin">
+    <div class="about-title"><span>About</span></div>
+    <img src="http://localhost:4000/blog.github.io/acniang.png" alt="Italian Trulli" width="100" height="100">
+    <div class="about-inner">
+      Hello, this is Yuxin, used to be an undergraduate student in BUPT, now I'm a MSCS student in Georgia Tech. If you wanna contact me: <a target="_blank" rel="noopener" href="https://www.linkedin.com/in/yuxin-xie-218b47221/"><font color="pink">LinkedIn</font></a>
+    </div>
+  </div>
+</div>
+            </aside>
+
+            
+            <aside class="sidebar ">
+                
+
+
+<div class="widget" id="widget">
+    
+      
+    
+      
+
+    
+      
+  <div class="widget-wrap widget-tags">
+    <div class="widget-title"><span>Tags</span></div>
+    <div class="widget-inner">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/blog.github.io/tags/Algorithm/" rel="tag">Algorithm</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-recent-posts">
+    <div class="widget-title"><span>Recent Posts</span></div>
+    <div class="widget-inner">
+      <ul>
+        
+          <li>
+            <a href="/blog.github.io/2021/12/18/first-post/">Union-Find</a>
+          </li>
+        
+          <li>
+            <a href="/blog.github.io/2021/12/18/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget-wrap widget-archive">
+    <div class="widget-title"><span>Archive</span></div>
+    <div class="widget-inner">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog.github.io/archives/2021/">2021</a></li></ul>
+    </div>
+  </div>
+
+
+    
+</div>
+
+<div id="backtop"><i class="icon icon-arrow-up"></i></div>
+            </aside>
+            
+        </div>
+    </div>
+
+    <footer class="footer">
+    <div class="footer-wave">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#3c4859" fill-opacity="1" d="M0,160L60,181.3C120,203,240,245,360,240C480,235,600,181,720,186.7C840,192,960,256,1080,261.3C1200,267,1320,213,1380,186.7L1440,160L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>
+    </div>
+
+    <div class="footer-wrap">
+        <div class="footer-inner"> 
+            Hexo &copy; 2022<br>
+            Powered By Hexo · Theme By <a href="https://github.com/lh1me/hexo-theme-aomori" target="_blank">Aomori</a>
+        </div>
+    </div>
+
+</footer>
+
+
+
+
+
+
+<script src="/blog.github.io/dist/build.js?1637200696663.js"></script>
+
+
+<script src="/blog.github.io/dist/custom.js?1637200696663.js"></script>
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>
